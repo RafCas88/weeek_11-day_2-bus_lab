@@ -7,11 +7,13 @@ public class BusTest {
 
     private Bus bus;
     private Person person;
+    private BusStop busStop;
 
     @Before
     public void before(){
         bus = new Bus("Gorgie Rd");
         person = new Person();
+        busStop = new BusStop("Ocean");
     }
 
     @Test
@@ -21,13 +23,14 @@ public class BusTest {
 
     @Test
     public void addPassengerIfCapacity(){
-        bus.addPassenger(person);
+        bus.addPassengerFromBusStop(busStop);
         assertEquals(1, bus.passengerCount());
     }
 
     @Test
     public void removePassenger(){
-        bus.addPassenger(person);
+//        busStop.addPerson(person);
+        bus.addPassengerFromBusStop(busStop);
         bus.removePassenger();
         assertEquals(0, bus.passengerCount());
     }
